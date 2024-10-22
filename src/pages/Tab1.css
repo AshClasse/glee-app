@@ -1,0 +1,17 @@
+.extra-padding {
+
+	padding-right: 1.3rem !important;
+	padding-left: 1.3rem !important;
+}
+
+.title {
+
+	font-weight: 600;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.tab-background{
+	background: rgb(255,255,255);
+	background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(102,196,215,1) 79%);
+}

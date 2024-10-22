@@ -1,0 +1,4 @@
+.tab-background{
+    background: rgb(239,197,196);
+    background: radial-gradient(circle, rgba(239,197,196,1) 7%, rgba(204,75,70,1) 56%, rgba(194,40,33,1) 90%);
+}

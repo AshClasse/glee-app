@@ -1,19 +1,27 @@
+import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact
-} from '@ionic/react';
+import { IonApp, IonIcon, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import {
+  home,
+  homeOutline,
+  accessibility,
+  accessibilityOutline,
+  informationCircle,
+  informationCircleOutline,
+  images,
+  imageOutline,
+  heartHalf,
+  heartHalfOutline,
+  call,
+  callOutline,
+} from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
+// import Tab4 from './pages/Tab4';
+// import Tab5 from './pages/Tab5';
+// import Tab6 from './pages/Tab6';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -31,57 +39,96 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
-
 /* Theme variables */
 import './theme/variables.css';
+import './theme/floating-tab-bar.css';
+import './theme/custom-fonts.css';
 
-setupIonicReact();
+interface Tab {
+  name: string;
+  url: string;
+  activeIcon: string;
+  icon: string;
+  component: React.FC;
+}
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  const tabs: Tab[] = [
+    {
+      name: "Inicio",
+      url: "/inicio",
+      activeIcon: home,
+      icon: homeOutline,
+      component: Tab1
+    },
+    {
+      name: "Personajes",
+      url: "/personajes",
+      activeIcon: accessibility,
+      icon: accessibilityOutline,
+      component: Tab2
+    },
+    {
+      name: "Momentos",
+      url: "/momentos",
+      activeIcon: images,
+      icon: imageOutline,
+      component: Tab3
+    }
+    // {
+    //   name: "Acerca de",
+    //   url: "/acerca",
+    //   activeIcon: informationCircle,
+    //   icon: informationCircleOutline,
+    //   component: Tab4
+    // },
+    // {
+    //   name: "En mi vida",
+    //   url: "/enmivida",
+    //   activeIcon: heartHalf,
+    //   icon: heartHalfOutline,
+    //   component: Tab5
+    // },
+    // {
+    //   name: "Contratame",
+    //   url: "/contratame",
+    //   activeIcon: call,
+    //   icon: callOutline,
+    //   component: Tab6
+    // }
+  ];
+
+  const [activeTab, setActiveTab] = useState<string>(tabs[0].name);
+
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <IonTabs onIonTabsDidChange={(e) => setActiveTab(e.detail.tab)}>
+          <IonRouterOutlet>
+            {tabs.map((tab, index) => (
+              <Route key={index} exact path={tab.url}>
+                <tab.component />
+              </Route>
+            ))}
+            <Route exact path="/">
+              <Redirect to="/inicio" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            {tabs.map((tab, barIndex) => {
+              const active = tab.name === activeTab;
+
+              return (
+                <IonTabButton key={`tab_${barIndex}`} tab={tab.name} href={tab.url}>
+                  <IonIcon icon={active ? tab.activeIcon : tab.icon} />
+                </IonTabButton>
+              );
+            })}
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
+  );
+};
 
 export default App;
