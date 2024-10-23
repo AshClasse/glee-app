@@ -1,0 +1,102 @@
+
+.tab1-content {
+	--background: radial-gradient(circle, rgba(241,248,217,1) 7%, rgba(146,208,51,1) 88%);
+}
+
+
+.video-swiper {
+	height: 100%;
+	width: 80%;
+}
+  
+.video-slide {
+	position: relative;
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+}
+
+.slider-video {
+	width: 100%;
+	max-height: 70vh;
+	border-radius: 15px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	object-fit: cover;
+	margin-bottom: 20px;
+  }
+  
+  .video-info {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	padding: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	text-align: center;
+  }
+  
+  .video-info h2 {
+	margin: 0;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: 'GleeFont', sans-serif;
+  }
+  
+  .video-info p {
+	margin: 5px 0 0;
+	font-size: 1em;
+	opacity: 0.9;
+  }
+  
+  /* Estilos para los controles del Swiper */
+  .swiper-pagination-bullet {
+	background: white !important;
+	opacity: 0.7;
+  }
+  
+  .swiper-pagination-bullet-active {
+	background: var(--ion-color-primary) !important;
+	opacity: 1;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+	.video-slide {
+	  padding: 10px;
+	}
+  
+	.slider-video {
+	  max-height: 70vh;
+	}
+  
+	.video-info h2 {
+	  font-size: 1.2em;
+	}
+  
+	.video-info p {
+	  font-size: 0.9em;
+	}
+  }
+  
+  /* Animaciones */
+  .video-slide {
+	animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+	from {
+	  opacity: 0;
+	  transform: translateY(20px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
