@@ -1,6 +1,5 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import { logoGithub, logoLinkedin, mailOutline, logoWhatsapp, personOutline, globeOutline } from 'ionicons/icons';
+import { logoGithub, logoLinkedin, mailOutline, logoWhatsapp,gameControllerOutline, personOutline, globeOutline } from 'ionicons/icons';
 import './Tab6.css';
 
 const Tab6: React.FC = () => {
@@ -11,6 +10,9 @@ const Tab6: React.FC = () => {
           <IonTitle>contrátame💵</IonTitle>
 
           <IonButtons slot="end">
+            <IonButton href='/mini-juego'>
+                <IonIcon icon={ gameControllerOutline } />
+            </IonButton>
             <IonButton href='/contratame'>
               <IonIcon icon={ personOutline } />
             </IonButton>

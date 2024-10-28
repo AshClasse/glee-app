@@ -18,6 +18,8 @@ import Tab4 from './pages/Tab4';
 import Tab5 from './pages/Tab5';
 import Tab6 from './pages/Tab6';
 
+
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -39,6 +41,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './theme/custom-fonts.css';
 import './theme/floating-tab-bar.css';
+import Tab7 from './pages/Tab7';
 
 setupIonicReact();
 
@@ -64,6 +67,9 @@ const App: React.FC = () => (
           </Route>
           <Route exact path="/contratame">
             <Tab6 />
+          </Route>
+          <Route exact path="/mini-juego">
+            <Tab7 />
           </Route>
           <Route exact path="/">
             <Redirect to="/inicio" />

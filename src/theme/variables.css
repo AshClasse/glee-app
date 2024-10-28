@@ -99,4 +99,5 @@ http://ionicframework.com/docs/theming/ */
   
   ion-title {
     font-family: 'GleeFont', sans-serif;
+    font-size: 1rem;
   }

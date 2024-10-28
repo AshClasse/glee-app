@@ -1,7 +1,6 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab5.css';
-import { personOutline } from 'ionicons/icons';
+import { personOutline, gameControllerOutline } from 'ionicons/icons';
 
 const Tab5: React.FC = () => {
   return (
@@ -11,6 +10,9 @@ const Tab5: React.FC = () => {
           <IonTitle>glee en mi vida💁🏾‍♀️</IonTitle>
 
           <IonButtons slot="end">
+            <IonButton href='/mini-juego'>
+                <IonIcon icon={ gameControllerOutline } />
+            </IonButton>
             <IonButton href='/contratame'>
               <IonIcon icon={ personOutline } />
             </IonButton>
@@ -42,7 +44,7 @@ const Tab5: React.FC = () => {
             <video 
               controls 
               width="100%" 
-              autoPlay loop
+              autoPlay 
               style={{ 
                 aspectRatio: '9/16',
                 maxHeight: '30vh',

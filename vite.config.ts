@@ -10,6 +10,18 @@ export default defineConfig({
     react(),
     legacy()
   ],
+  build: {
+    chunkSizeWarningLimit: 1000, // Aumenta el límite a 1000kb
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Separa las dependencias grandes en chunks
+          'react-vendor': ['react', 'react-dom'],
+          'ionic-vendor': ['@ionic/react', '@ionic/react-router']
+        },
+      },
+    },
+  },
   test: {
     globals: true,
     environment: 'jsdom',

@@ -1,7 +1,6 @@
 import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Tab4.css';
-import { personOutline } from 'ionicons/icons';
+import { gameControllerOutline, personOutline } from 'ionicons/icons';
 
 const Tab4: React.FC = () => {
   return (
@@ -10,6 +9,9 @@ const Tab4: React.FC = () => {
         <IonToolbar>
           <IonTitle>acerca de glee📖</IonTitle>
           <IonButtons slot="end">
+            <IonButton href='/mini-juego'>
+                <IonIcon icon={ gameControllerOutline } />
+            </IonButton>
             <IonButton href='/contratame'>
               <IonIcon icon={ personOutline } />
             </IonButton>
